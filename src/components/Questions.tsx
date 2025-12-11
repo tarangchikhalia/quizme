@@ -1,7 +1,6 @@
 import { QuestionCard } from './QuestionCard'
 import { ScoreCard } from './ScoreCard'
-import { Progress } from './ui/progress'
-import { Button } from './ui/button'
+import { QuestionsFooter } from './QuestionsFooter'
 import questionsData from '../questions.json'
 import { useState } from 'react'
 
@@ -65,23 +64,13 @@ export function Questions() {
       </div>
       
       {questions.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-secondary-background border-t-4 border-border p-4 shadow-shadow">
-          <div className="container mx-auto max-w-3xl">
-            <div className="flex items-center gap-4">
-              <span className="font-heading text-sm whitespace-nowrap">
-                {answeredCount} / {questions.length}
-              </span>
-              <Progress value={progressPercentage} className="flex-1" />
-              <Button 
-                onClick={handleSubmitAll}
-                disabled={answeredCount === 0 || submitted}
-                className="min-w-32"
-              >
-                Submit All
-              </Button>
-            </div>
-          </div>
-        </div>
+        <QuestionsFooter
+          answeredCount={answeredCount}
+          totalQuestions={questions.length}
+          progressPercentage={progressPercentage}
+          onSubmitAll={handleSubmitAll}
+          submitted={submitted}
+        />
       )}
     </>
   )
