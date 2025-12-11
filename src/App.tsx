@@ -2,6 +2,7 @@ import './App.css'
 import { NavBar } from './components/NavBar'
 import { SearchBox } from './components/SearchBox'
 import { Selector } from './components/Selector'
+import { Questions } from './components/Questions'
 import { useState } from 'react'
 
 function App() {
@@ -24,10 +25,11 @@ function App() {
         <Selector onSelect={handleDifficultySelect} selectedDifficulty={difficulty} />
       </div>
       {searchText && difficulty && (
-        <div className='text-center text-2xl'>
+        <div className='text-center text-2xl mb-6'>
           <span>Getting 10 questions on {searchText} with difficulty {difficulty}</span>
         </div>
       )}
+      <Questions />
     </>
   )
 }
