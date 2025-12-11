@@ -6,7 +6,7 @@ interface QuestionCardProps {
   question: string
   options: string[]
   correctAnswer: number
-  onAnswer?: () => void
+  onAnswer?: (isCorrect: boolean) => void
 }
 
 export function QuestionCard({ question, options, correctAnswer, onAnswer }: QuestionCardProps) {
@@ -16,7 +16,8 @@ export function QuestionCard({ question, options, correctAnswer, onAnswer }: Que
   const handleSubmit = () => {
     if (selectedOption !== null) {
       setSubmitted(true)
-      onAnswer?.()
+      const isCorrect = selectedOption === correctAnswer
+      onAnswer?.(isCorrect)
     }
   }
 

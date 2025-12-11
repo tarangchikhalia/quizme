@@ -1,4 +1,5 @@
 import { QuestionCard } from './QuestionCard'
+import { ScoreCard } from './ScoreCard'
 import { Progress } from './ui/progress'
 import questionsData from '../questions.json'
 import { useState } from 'react'
@@ -12,15 +13,22 @@ interface Question {
 export function Questions() {
   const questions: Question[] = questionsData
   const [answeredCount, setAnsweredCount] = useState(0)
+  const [score, setScore] = useState(0)
+  const passingScore = 8
 
-  const handleAnswer = () => {
+  const handleAnswer = (isCorrect: boolean) => {
     setAnsweredCount(prev => prev + 1)
+    if (isCorrect) {
+      setScore(prev => prev + 1)
+    }
   }
 
   const progressPercentage = (answeredCount / questions.length) * 100
 
   return (
     <>
+      <ScoreCard score={score} totalQuestions={questions.length} passingScore={passingScore} />
+      
       <div className="container mx-auto px-4 py-8 pb-24">
         <div className="max-w-3xl mx-auto space-y-6">
           {questions.map((q, index) => (
