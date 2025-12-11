@@ -6,15 +6,17 @@ interface QuestionCardProps {
   question: string
   options: string[]
   correctAnswer: number
+  onAnswer?: () => void
 }
 
-export function QuestionCard({ question, options, correctAnswer }: QuestionCardProps) {
+export function QuestionCard({ question, options, correctAnswer, onAnswer }: QuestionCardProps) {
   const [selectedOption, setSelectedOption] = useState<number | null>(null)
   const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = () => {
     if (selectedOption !== null) {
       setSubmitted(true)
+      onAnswer?.()
     }
   }
 
