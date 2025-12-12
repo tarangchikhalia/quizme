@@ -1,14 +1,16 @@
 # QuizMe 🧠
 
-A modern, interactive quiz application built with React, TypeScript, and Vite, featuring a bold neobrutalism design aesthetic.
+A modern, interactive quiz application built with React, TypeScript, and Vite, featuring AI-powered question generation and a bold neobrutalism design aesthetic.
 
 ## Features
 
+- **AI-Powered Question Generation**: Generate custom quiz questions on any topic using OpenAI
 - **Interactive Quiz Interface**: Answer multiple-choice questions with a clean, intuitive UI
 - **Score Tracking**: Real-time score display with passing/failing indicators (passing score: 8/10)
 - **Progress Tracking**: Visual progress bar showing completion status
 - **Neobrutalism Design**: Bold borders, vibrant colors, and distinctive shadows
-- **Difficulty Selection**: Choose between Easy, Medium, and Hard difficulty levels
+- **Difficulty Selection**: Choose between Beginner, Intermediate, and Advanced difficulty levels
+- **Dynamic Content**: Questions are generated in real-time based on user input
 
 ## Tech Stack
 
@@ -18,6 +20,8 @@ A modern, interactive quiz application built with React, TypeScript, and Vite, f
 - **Tailwind CSS 4** - Utility-first CSS framework
 - **shadcn/ui** - Component library with neobrutalism theme
 - **Radix UI** - Accessible component primitives
+- **LangChain** - AI integration framework
+- **OpenAI** - Question generation powered by GPT models
 
 ## Getting Started
 
@@ -41,14 +45,25 @@ npm install
 bun install
 ```
 
-3. Start the development server:
+3. Set up environment variables:
+```bash
+cp .env.sample .env
+```
+
+Edit `.env` and add your OpenAI API credentials:
+```env
+VITE_OPENAI_API_KEY=your_openai_api_key_here
+VITE_OPENAI_MODEL_NAME=gpt-4o-mini
+```
+
+4. Start the development server:
 ```bash
 npm run dev
 # or
 bun dev
 ```
 
-4. Open your browser to `http://localhost:5173`
+5. Open your browser to `http://localhost:5173`
 
 ### Build for Production
 
@@ -66,7 +81,13 @@ npm run preview
 bun preview
 ```
 
-## Customization
+## Deployment
+
+### Prerequisites for Deployment
+
+- OpenAI API key
+- Node.js 18+ runtime environment
+- Environment variables configured
 
 ### Adding Questions
 
