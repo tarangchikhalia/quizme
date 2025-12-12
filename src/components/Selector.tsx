@@ -4,12 +4,12 @@ interface SelectorProps {
 }
 
 export function Selector({ onSelect, selectedDifficulty }: SelectorProps) {
-  const difficulties = ['Easy', 'Medium', 'Hard']
+  const difficulties = ['Beginner', 'Intermediate', 'Advanced']
 
   const getButtonColor = (difficulty: string) => {
     if (selectedDifficulty === difficulty) {
-      if (difficulty === 'Medium') return 'bg-orange-400 text-main-foreground'
-      if (difficulty === 'Hard') return 'bg-red-500 text-main-foreground'
+      if (difficulty === 'Intermediate') return 'bg-orange-400 text-main-foreground'
+      if (difficulty === 'Advanced') return 'bg-red-500 text-main-foreground'
       return 'bg-main text-main-foreground'
     }
     return 'bg-secondary-background text-foreground'

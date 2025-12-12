@@ -3,12 +3,7 @@ import { ScoreCard } from './ScoreCard'
 import { QuestionsFooter } from './QuestionsFooter'
 import questionsData from '../questions.json'
 import { useState } from 'react'
-
-interface Question {
-  question: string
-  options: string[]
-  correct: number
-}
+import type { Question } from '../types/Questions'
 
 export function Questions() {
   const questions: Question[] = questionsData
